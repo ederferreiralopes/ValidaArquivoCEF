@@ -13,7 +13,7 @@ namespace ValidaArquivoSiteMVC.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: /Home/ teste
+        // GET: /Home/ 
 
         public ViewResult Index()
         {
