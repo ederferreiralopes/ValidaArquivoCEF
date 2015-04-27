@@ -1,0 +1,49 @@
+﻿@model ValidaArquivoSiteMVC.Models.ArquivoModel
+@using System.Collections
+@{Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VALIDADOR</title>
+    <link href="~/styles/StyleSheet.css" rel="stylesheet" />
+    <script src="~/js/javascript.js"></script>
+</head>
+<body>
+    <img alt="logo" src="images/logo.jpg" />
+    <section id="controles">
+            VALIDADOR ARQUIVO CEF SIACC 240
+
+            @using (@Html.BeginForm("ValidaArquivoCEF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="file" id="Arquivo" name="Arquivo" value="arquivo." />
+                @*@Html.DropDownListFor(x => x.Tipo, new List<SelectListItem>() 
+                {
+                new SelectListItem(){ Text = "REM", Value = "REM"},
+                new SelectListItem(){ Text = "RET", Value = "RET"},
+                new SelectListItem(){ Text = "SELECIONE", Value = "", Selected = true},
+                })*@
+                
+                @Html.RadioButtonFor(x => x.Tipo, "REM") @Html.Label("Remessa")
+                @Html.RadioButtonFor(x => x.Tipo, "RET") @Html.Label("Retorno")
+                    <input id="bt_Validar" type="submit" value="Validar" onclick="mostrarBotoes()" />
+                    <input id="bt_Limpar" type="button" onclick="limpar()" value="Limpar" />
+        <input id="busca" type="text" value="" size="12" />
+        <input id="bt_busca" type="button" onclick="doDestacaTexto(document.getElementById('busca').value, log_TextoValidacao.innerHTML)" value="Destacar" />
+            }
+
+
+            @using (@Html.BeginForm("GeneratePDF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input id="gerapdf" type="submit" value="Gerar PDF" />
+            }
+        </section>
+
+            <div class="TextoValidacao">
+                <p id="log_TextoValidacao">
+                    @Html.DisplayTextFor(x => x.Validacao)
+                </p>
+            </div>
+    </body>
+    </html>

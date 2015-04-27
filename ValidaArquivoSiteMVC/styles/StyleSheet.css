@@ -1,0 +1,31 @@
+﻿body {
+    
+}
+
+img {
+    background:url("images/logo.jpg")
+    position:absolute;
+    height: 120px;
+    width: 120px;
+    top: 40px;
+    left: 44px;
+}
+
+section#controles {
+    position:absolute;
+    background-color:darkgray;    
+    top:40px;
+    left:170px;
+    width: auto;
+}
+
+.TextoValidacao {
+    position: relative;
+    left: 160px;
+    height: 126px;
+    width: auto;
+}
+
+p {
+    background-color:darkgray;
+}
