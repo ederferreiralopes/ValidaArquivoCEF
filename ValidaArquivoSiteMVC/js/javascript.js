@@ -68,7 +68,7 @@ function mostrarOculto()
 
 function limpar()
 {
-    document.getElementById('log_TextoValidacao').innerText = "";
+    document.getElementById("log_TextoValidacao").innerText = "";
 }
 
 function getTextoValidacao()
@@ -76,8 +76,14 @@ function getTextoValidacao()
     document.getElementById("textoValidacao").innerHTML = localStorage.getItem("textoOriginal");
 }
 
-function mostrarBotoes()
+function validacaoPrevia()
 {
     document.getElementById("gerapdf").style.visibility = 'hidden';
     alert("esconder botao!");
 }
+
+//function mostrarBotoes()
+//{
+//    document.getElementById("gerapdf").style.visibility = 'hidden';
+//    alert("esconder botao!");
+//}

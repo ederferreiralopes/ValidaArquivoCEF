@@ -11,7 +11,7 @@
     <script src="~/js/javascript.js"></script>
 </head>
 <body>
-    <img alt="logo" src="images/logo.jpg" />
+    <img alt="logo" src="~/images/logo.jpg" />
     <section id="controles">
             VALIDADOR ARQUIVO CEF SIACC 240
 
@@ -25,9 +25,9 @@
                 new SelectListItem(){ Text = "SELECIONE", Value = "", Selected = true},
                 })*@
                 
-                @Html.RadioButtonFor(x => x.Tipo, "REM") @Html.Label("Remessa")
-                @Html.RadioButtonFor(x => x.Tipo, "RET") @Html.Label("Retorno")
-                    <input id="bt_Validar" type="submit" value="Validar" onclick="mostrarBotoes()" />
+                @Html.RadioButtonFor(x => x.Tipo, "REM", "teste") @Html.Label("Remessa")
+                @Html.RadioButtonFor(x => x.Tipo, "RET", "teste2") @Html.Label("Retorno")
+                    <input id="bt_Validar" type="submit" value="Validar" onclick="validacaoPrevia()" />
                     <input id="bt_Limpar" type="button" onclick="limpar()" value="Limpar" />
         <input id="busca" type="text" value="" size="12" />
         <input id="bt_busca" type="button" onclick="doDestacaTexto(document.getElementById('busca').value, log_TextoValidacao.innerHTML)" value="Destacar" />

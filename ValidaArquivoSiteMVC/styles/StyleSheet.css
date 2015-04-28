@@ -3,7 +3,6 @@
 }
 
 img {
-    background:url("images/logo.jpg")
     position:absolute;
     height: 120px;
     width: 120px;
@@ -17,15 +16,18 @@ section#controles {
     top:40px;
     left:170px;
     width: auto;
+    padding:4px;
 }
 
 .TextoValidacao {
-    position: relative;
-    left: 160px;
+    position: absolute;
+    top:100px;
+    left: 170px;
     height: 126px;
-    width: auto;
+    width: auto;    
 }
 
 p {
     background-color:darkgray;
+    padding:4px;
 }
