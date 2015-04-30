@@ -12,21 +12,16 @@
 </head>
 <body>
     <img alt="logo" src="~/images/logo.jpg" />
+
     <section id="controles">
             VALIDADOR ARQUIVO CEF SIACC 240
 
             @using (@Html.BeginForm("ValidaArquivoCEF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <input type="file" id="Arquivo" name="Arquivo" value="arquivo." />
-                @*@Html.DropDownListFor(x => x.Tipo, new List<SelectListItem>() 
-                {
-                new SelectListItem(){ Text = "REM", Value = "REM"},
-                new SelectListItem(){ Text = "RET", Value = "RET"},
-                new SelectListItem(){ Text = "SELECIONE", Value = "", Selected = true},
-                })*@
                 
-                @Html.RadioButtonFor(x => x.Tipo, "REM", "teste") @Html.Label("Remessa")
-                @Html.RadioButtonFor(x => x.Tipo, "RET", "teste2") @Html.Label("Retorno")
+                @Html.RadioButtonFor(x => x.Tipo, "REM") @Html.Label("Remessa")
+                @Html.RadioButtonFor(x => x.Tipo, "RET") @Html.Label("Retorno")
                     <input id="bt_Validar" type="submit" value="Validar" onclick="validacaoPrevia()" />
                     <input id="bt_Limpar" type="button" onclick="limpar()" value="Limpar" />
         <input id="busca" type="text" value="" size="12" />
