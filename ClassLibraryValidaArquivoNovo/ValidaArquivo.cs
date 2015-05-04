@@ -232,19 +232,19 @@ namespace ClassLibraryValidaArquivoCEF
             return mensagemValidacao;
         }
 
-        public String lerRetornoCnab240(string caminho, string caminhoLogValidacao)
+        public String lerRetornoCnab240( Stream arquivo)
         {
             string linha, linhaHeaderRetorno = "", linhaTraillerRetorno = "", linhaHeaderLote = "", linhaTraillerLote = "", mensagemValidacao = "";
             int contadorLinhas = 0, contadorHeaderRetorno = 0, contadorTraillerRetorno = 0, contadorHeaderLote = 0, contadorTraillerLote = 0, quantPagamento = 0;
             int numNsr = 1, numLote = 1, campoQuantRegLote = 0, quantRegLote = 2;
             long somaValorPagamento = 0, campoSomaValorPagamento = 0, campoSomaQuantMoeda = 0, somaQuantMoeda = 0;
 
-            StreamWriter sw = new StreamWriter(caminhoLogValidacao + "\\validacao.log", true, UTF8Encoding.UTF8);
+            //StreamWriter sw = new StreamWriter(caminhoLogValidacao + "\\validacao.log", true, UTF8Encoding.UTF8);
 
             try
             {
                 // construtor que recebe o objeto do tipo arquivo
-                StreamReader sr = new StreamReader(caminho, UTF8Encoding.UTF8);
+                StreamReader sr = new StreamReader(arquivo);
 
                 // emquanto houver linhas
                 while (((linha = sr.ReadLine()) != null))
@@ -263,7 +263,6 @@ namespace ClassLibraryValidaArquivoCEF
                         {
                             case "0":
                                 linhaHeaderRetorno = linha;
-                                mensagemValidacao += ("Analisando retorno: " + Path.GetFileName(caminho) + "<br><br>");
                                 //mensagemValidacao += ("Linha: " + contadorLinhas + ": Validando registro do Tipo: 0 (Header Retorno)...<br>");
                                 contadorHeaderRetorno++;
 
@@ -455,10 +454,7 @@ namespace ClassLibraryValidaArquivoCEF
                     }
                     else { mensagemValidacao += ("Linha: " + contadorLinhas + ": Não foi possível identificar a linha: " + linha + "<br>"); }
                 } // fecha o laço while
-
                 sr.Close(); //fecha o StreamReader
-
-
             }
             catch (IOException ex)
             {
@@ -476,10 +472,7 @@ namespace ClassLibraryValidaArquivoCEF
             else
             {
                 mensagemValidacao += ("<br>Problema com HEADER ou TRAILLER da Retorno!<br>Quant. Header: " + contadorHeaderRetorno + "<br>Quant. Trailler: " + contadorTraillerRetorno + "<br><br>");
-            }
-            sw.Write(mensagemValidacao);
-            sw.Close();
-
+            } 
             return mensagemValidacao;
         }
     }
