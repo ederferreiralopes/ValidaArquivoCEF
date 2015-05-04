@@ -10,6 +10,7 @@ namespace ValidaArquivoSiteMVC.Models
 {
     public class ArquivoModel
     {
+        public int id { get; set; }
         public String Nome {get;set;}
         public String Caminho { get; set; }
         public String Tipo { get; set; }

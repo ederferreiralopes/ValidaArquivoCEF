@@ -31,12 +31,17 @@ namespace ValidaArquivoSiteMVC.Controllers
                     model.Arquivo = Request.Files[i];
                     model.Nome = Request.Files[i].FileName;
                 }
-
-                var tipoArquivo = Request.Form.Get("tipoArquivo");
-
+                
                 ValidaArquivoCAIXA valida = new ValidaArquivoCAIXA();
                 model.Validacao = ("Validando arquivo: " + model.Nome + "<br><br>");
                 model.Validacao += valida.lerRemessaCnab240(model.Arquivo.InputStream);
+                model.id = 1;
+                DBLogValidacao logBanco = new DBLogValidacao();
+
+                Validacao val = new Validacao();
+                val.validacao = model.Validacao;
+                logBanco.LogValidacao.Add(val);
+                logBanco.SaveChanges();
 
                 TempData["TextoValidacao"] = model.Validacao;
 
