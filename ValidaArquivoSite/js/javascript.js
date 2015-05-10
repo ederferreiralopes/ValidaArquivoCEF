@@ -47,6 +47,7 @@
 
             //adiciona as tags para destacar a palavra pesquisada.
             novoTexto += Texto.substring(0, indice) + inicioTag + Texto.substr(indice, termoBusca.length) + fimTag;
+
             Texto = Texto.substr(indice + termoBusca.length);
             indice = 0;
             control++;
@@ -65,25 +66,3 @@ function mostrarOculto()
     document.getElementById("bt_busca").style.visibility = "visible";
     document.getElementById("bt_busca").currentStyle.visibility = "visible";    
 }
-
-function limpar()
-{
-    document.getElementById("log_TextoValidacao").innerText = "";
-}
-
-function getTextoValidacao()
-{
-    document.getElementById("textoValidacao").innerHTML = localStorage.getItem("textoOriginal");
-}
-
-function validacaoPrevia()
-{
-    document.getElementById("gerapdf").style.visibility = 'hidden';
-    //alert("esconder botao!");
-}
-
-//function mostrarBotoes()
-//{
-//    document.getElementById("gerapdf").style.visibility = 'hidden';
-//    alert("esconder botao!");
-//}

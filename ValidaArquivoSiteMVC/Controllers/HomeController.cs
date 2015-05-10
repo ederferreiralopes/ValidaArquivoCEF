@@ -2,10 +2,7 @@
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using System.Web;
 using System.Web.Mvc;
 using ValidaArquivoSiteMVC.Models;
 
@@ -43,12 +40,12 @@ namespace ValidaArquivoSiteMVC.Controllers
                 {
                     model.Validacao += valida.lerRemessaCnab240(model.Arquivo.InputStream);
                 }
-                model.id = 1;
+
+                model.Data = DateTime.Now;
+
                 DBLogValidacao logBanco = new DBLogValidacao();
 
-                Validacao val = new Validacao();
-                val.validacao = model.Validacao;
-                logBanco.LogValidacao.Add(val);
+                logBanco.Validacao.Add(model);
                 logBanco.SaveChanges();
 
                 TempData["TextoValidacao"] = model.Validacao;
