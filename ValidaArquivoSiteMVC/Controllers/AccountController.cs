@@ -10,9 +10,6 @@ namespace ValidaArquivoSiteMVC.Controllers
 {
     public class AccountController : Controller
     {
-        //
-        // GET: /Account/
-
         public ActionResult Index()
         {
             return View();
@@ -21,25 +18,22 @@ namespace ValidaArquivoSiteMVC.Controllers
         [HttpPost]
         public ActionResult Login(UsuarioModel usuario)
         {
-            String[] login = Request.Form.GetValues("login");
-            String[] senha = Request.Form.GetValues("senha");
+            DBUsuario db = new DBUsuario();
+            List<UsuarioModel> query = db.Usuario.Where(usu => usu.Login == usuario.Login && usu.Senha == usuario.Senha).ToList();
 
-            usuario.Login = login[0];
-            usuario.Senha = senha[0];
-
-            if (usuario.Login.Equals("eder") && usuario.Senha.Equals("lopes"))
+            if (query.Count > 0)
             {
                 FormsAuthenticationTicket authenticationTicket = new FormsAuthenticationTicket(usuario.Login, false, 60);
                 string encryptTicket = FormsAuthentication.Encrypt(authenticationTicket);
                 HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptTicket);
                 Response.Cookies.Add(authCookie);
 
-                ViewData["mensagem"] = ", Seja bem vindo!";
+                TempData["mensagem"] = usuario.Login + ", Seja bem vindo!";
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                ViewData["mensagemErro"] = "Usuario ou senha invalidos!";
+                TempData["mensagemErro"] = "Usuario ou senha invalidos!";
                 return View("Index");
             }
             
@@ -54,7 +48,7 @@ namespace ValidaArquivoSiteMVC.Controllers
         public ActionResult Cadastrar(UsuarioModel usuario)
         {
             DBUsuario dbUsuario = new DBUsuario();
-            dbUsuario.Usuario.Add(usuario);
+            dbUsuario.Usuario.Add(usuario);            
             dbUsuario.SaveChanges();
             return View("Index");
         }

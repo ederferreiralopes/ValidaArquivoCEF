@@ -39,9 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClassLibraryValidaArquivoNovo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ClassLibraryValidaArquivoNovo\bin\Debug\ClassLibraryValidaArquivoNovo.dll</HintPath>
+    <Reference Include="ClassLibraryValidaArquivoNovo">
+      <HintPath>..\..\ValidaArquivoCEF\ClassLibraryValidaArquivoNovo\bin\Debug\ClassLibraryValidaArquivoNovo.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
@@ -134,9 +133,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505210549205_user.cs" />
-    <Compile Include="Migrations\201505210549205_user.Designer.cs">
-      <DependentUpon>201505210549205_user.cs</DependentUpon>
+    <Compile Include="Migrations\201505211728118_eder.cs" />
+    <Compile Include="Migrations\201505211728118_eder.Designer.cs">
+      <DependentUpon>201505211728118_eder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505211819298_agoravai2.cs" />
+    <Compile Include="Migrations\201505211819298_agoravai2.Designer.cs">
+      <DependentUpon>201505211819298_agoravai2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505212048535_agoravai22.cs" />
+    <Compile Include="Migrations\201505212048535_agoravai22.Designer.cs">
+      <DependentUpon>201505212048535_agoravai22.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArquivoModel.cs" />
@@ -184,15 +191,21 @@
     <Content Include="Views\Home\ValidacaoPDF.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Account\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Account\Cadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505210549205_user.resx">
-      <DependentUpon>201505210549205_user.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505211728118_eder.resx">
+      <DependentUpon>201505211728118_eder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505211819298_agoravai2.resx">
+      <DependentUpon>201505211819298_agoravai2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505212048535_agoravai22.resx">
+      <DependentUpon>201505212048535_agoravai22.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

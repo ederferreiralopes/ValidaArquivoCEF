@@ -1,5 +1,6 @@
 namespace ValidaArquivoSiteMVC.Migrations
 {
+    using MySql.Data.Entity;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -9,6 +10,8 @@ namespace ValidaArquivoSiteMVC.Migrations
     {
         public Configuration()
         {
+            CodeGenerator = new MySqlMigrationCodeGenerator();
+
             AutomaticMigrationsEnabled = false;
 
             // register mysql code generator

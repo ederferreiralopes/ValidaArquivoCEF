@@ -9,8 +9,7 @@ namespace ValidaArquivoSiteMVC.Models
 {
     public class DBUsuario : DbContext
     {
-        public DBUsuario()
-            : base("connMysql")
+        public DBUsuario():base("connMysql")
         {
         }
 
@@ -23,7 +22,6 @@ namespace ValidaArquivoSiteMVC.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<ArquivoModel>().ToTable("Usuario");
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
         }

@@ -11,8 +11,6 @@ namespace ValidaArquivoSiteMVC.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        // GET: /Home/ 
-
         public ViewResult Index()
         {
             return View();
@@ -35,11 +33,11 @@ namespace ValidaArquivoSiteMVC.Controllers
                 
                 if (model.Tipo.Equals("REM"))
                 {
-                model.Validacao += valida.lerRemessaCnab240(model.Arquivo.InputStream);
+                model.Validacao += valida.lerRemessaCnab240(model.Nome, model.Arquivo.InputStream);
                 }
                 if (model.Tipo.Equals("RET"))
                 {
-                    model.Validacao += valida.lerRemessaCnab240(model.Arquivo.InputStream);
+                    model.Validacao += valida.lerRemessaCnab240(model.Nome, model.Arquivo.InputStream);
                 }
 
                 model.Data = DateTime.Now;

@@ -14,7 +14,7 @@
     <img alt="logo" src="~/images/logo.jpg" />
 
     <section id="controles">
-            VALIDADOR ARQUIVO CEF SIACC 240 @ViewData["mensagem"]   
+            VALIDADOR ARQUIVO CEF SIACC 240 @TempData["mensagem"]   
         
             @using (@Html.BeginForm("Logout", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {

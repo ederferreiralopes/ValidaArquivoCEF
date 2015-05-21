@@ -2,12 +2,14 @@
 using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 using System.Linq;
 using System.Web;
 
 namespace ValidaArquivoSiteMVC.Models
 {
+    [Table("Arquivo")]
     public class ArquivoModel
     {
         public int id { get; set; }

@@ -11,13 +11,18 @@ namespace ValidaArquivoSiteMVC.Models
     {
         public DBLogValidacao():base("connMysql")
         {
+
         }
 
         public DbSet<ArquivoModel> Validacao { get; set; }
 
+        static DBLogValidacao()
+        {
+            DbConfiguration.SetConfiguration(new MySql.Data.Entity.MySqlEFConfiguration());
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ArquivoModel>().ToTable("Validacao");
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Entity<ArquivoModel>().Ignore(t => t.Arquivo);
             base.OnModelCreating(modelBuilder);

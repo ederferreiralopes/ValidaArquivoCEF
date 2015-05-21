@@ -3,12 +3,22 @@ namespace ValidaArquivoSiteMVC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class user : DbMigration
+    public partial class eder : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Validacao",
+                "Usuario",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Login = c.String(unicode: false),
+                        Senha = c.String(unicode: false),
+                    })
+                .PrimaryKey(t => t.Id)                ;
+            
+            CreateTable(
+                "Arquivo",
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
@@ -17,13 +27,14 @@ namespace ValidaArquivoSiteMVC.Migrations
                         Tipo = c.String(unicode: false),
                         Validacao = c.String(unicode: false),
                     })
-                .PrimaryKey(t => t.id);
+                .PrimaryKey(t => t.id)                ;
             
         }
         
         public override void Down()
         {
-            DropTable("dbo.Validacao");
+            DropTable("Arquivo");
+            DropTable("Usuario");
         }
     }
 }

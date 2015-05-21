@@ -8,13 +8,11 @@
 
 <html>
 <head>
+    <link href="~/styles/StyleSheet.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
     <title>Cadastro</title>
 </head>
 <body>
-    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     
     @using (Html.BeginForm("Cadastrar","Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
@@ -22,7 +20,7 @@
         @Html.ValidationSummary(true)
     
         <fieldset>
-            <legend>UsuarioModel</legend>
+            <legend>Cadastro</legend>
         
             <div class="editor-label">
                 @Html.LabelFor(model => model.Login)
@@ -41,13 +39,13 @@
             </div>
     
             <p>
-                <input type="submit" value="Create" />
+                <input type="submit" value="Cadastrar" />
             </p>
         </fieldset>
     }
     
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Voltar", "Index")
     </div>
 </body>
 </html>

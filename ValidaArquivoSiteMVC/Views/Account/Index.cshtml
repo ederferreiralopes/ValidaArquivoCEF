@@ -1,26 +1,54 @@
-﻿@{
-    ViewBag.Title = "Login";
+﻿@model ValidaArquivoSiteMVC.Models.UsuarioModel
+
+@{
+    Layout = null;
 }
-@model ValidaArquivoSiteMVC.Models.UsuarioModel
 
-<h2>Login</h2>
-<div>
-    @using (@Html.BeginForm("Login", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/styles/StyleSheet.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        @Html.EditorFor(x => x.Login, "login")<br />
-        @Html.EditorFor(x => x.Senha, "senha")<br />
-        <input type="submit" name="Entrar" id="entrar" value="Entrar"/><br />
-        @ViewData["mensagemErro"]
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Acesso</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Login)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Login)
+                @Html.ValidationMessageFor(model => model.Login)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Senha)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Senha)
+                @Html.ValidationMessageFor(model => model.Senha)
+            </div>
+    
+            <p>
+                <input type="submit" value="Entrar" />
+            </p>
+            <p>
+                @TempData["mensagemErro"]
+            </p>
+        </fieldset>
     }
-
-    @using (@Html.BeginForm("Cadastro", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <input type="submit" name="cadastro" id="Logout" value="Cadastrar" />
-    }
-
-    @using (@Html.BeginForm("Logout", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <input type="submit" name="Logout" id="Logout" value="Logout" />
-    }
-
-</div>
+    
+    <div>
+        @Html.ActionLink("Cadastre-se", "Cadastro")
+    </div>
+</body>
+</html>
