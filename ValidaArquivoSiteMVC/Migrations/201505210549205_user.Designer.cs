@@ -7,13 +7,13 @@ namespace ValidaArquivoSiteMVC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class nometabela : IMigrationMetadata
+    public sealed partial class user : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(nometabela));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(user));
         
         string IMigrationMetadata.Id
         {
-            get { return "201505100325342_nome tabela"; }
+            get { return "201505210549205_user"; }
         }
         
         string IMigrationMetadata.Source

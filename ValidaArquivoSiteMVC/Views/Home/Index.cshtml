@@ -14,7 +14,12 @@
     <img alt="logo" src="~/images/logo.jpg" />
 
     <section id="controles">
-            VALIDADOR ARQUIVO CEF SIACC 240
+            VALIDADOR ARQUIVO CEF SIACC 240 @ViewData["mensagem"]   
+        
+            @using (@Html.BeginForm("Logout", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="submit" name="Logout" id="Logout" value="Logout" />
+            }
 
             @using (@Html.BeginForm("ValidaArquivoCEF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {

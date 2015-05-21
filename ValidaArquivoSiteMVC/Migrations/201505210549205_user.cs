@@ -3,7 +3,7 @@ namespace ValidaArquivoSiteMVC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class nometabela : DbMigration
+    public partial class user : DbMigration
     {
         public override void Up()
         {

@@ -7,19 +7,24 @@ using System.Web;
 
 namespace ValidaArquivoSiteMVC.Models
 {
-    public class DBLogValidacao:DbContext
+    public class DBUsuario : DbContext
     {
-        public DBLogValidacao():base("connMysql")
+        public DBUsuario()
+            : base("connMysql")
         {
         }
 
-        public DbSet<ArquivoModel> Validacao { get; set; }
+        public DbSet<UsuarioModel> Usuario { get; set; }
+
+        static DBUsuario()
+        {
+            DbConfiguration.SetConfiguration(new MySql.Data.Entity.MySqlEFConfiguration());
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ArquivoModel>().ToTable("Validacao");
+            //modelBuilder.Entity<ArquivoModel>().ToTable("Usuario");
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Entity<ArquivoModel>().Ignore(t => t.Arquivo);
             base.OnModelCreating(modelBuilder);
         }
     }

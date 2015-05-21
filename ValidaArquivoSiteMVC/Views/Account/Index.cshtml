@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+@model ValidaArquivoSiteMVC.Models.UsuarioModel
+
+<h2>Login</h2>
+<div>
+    @using (@Html.BeginForm("Login", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.EditorFor(x => x.Login, "login")<br />
+        @Html.EditorFor(x => x.Senha, "senha")<br />
+        <input type="submit" name="Entrar" id="entrar" value="Entrar"/><br />
+        @ViewData["mensagemErro"]
+    }
+
+    @using (@Html.BeginForm("Cadastro", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="submit" name="cadastro" id="Logout" value="Cadastrar" />
+    }
+
+    @using (@Html.BeginForm("Logout", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="submit" name="Logout" id="Logout" value="Logout" />
+    }
+
+</div>

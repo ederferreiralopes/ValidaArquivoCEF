@@ -129,17 +129,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505100325342_nome tabela.cs" />
-    <Compile Include="Migrations\201505100325342_nome tabela.Designer.cs">
-      <DependentUpon>201505100325342_nome tabela.cs</DependentUpon>
+    <Compile Include="Migrations\201505210549205_user.cs" />
+    <Compile Include="Migrations\201505210549205_user.Designer.cs">
+      <DependentUpon>201505210549205_user.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArquivoModel.cs" />
     <Compile Include="Models\DBLogValidacao.cs" />
+    <Compile Include="Models\DBUsuario.cs" />
+    <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,8 +184,14 @@
     <Content Include="Views\Home\ValidacaoPDF.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505100325342_nome tabela.resx">
-      <DependentUpon>201505100325342_nome tabela.cs</DependentUpon>
+    <Content Include="Views\Account\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Cadastro.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505210549205_user.resx">
+      <DependentUpon>201505210549205_user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

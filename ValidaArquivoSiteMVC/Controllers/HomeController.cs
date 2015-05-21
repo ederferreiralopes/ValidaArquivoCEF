@@ -8,6 +8,7 @@ using ValidaArquivoSiteMVC.Models;
 
 namespace ValidaArquivoSiteMVC.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         // GET: /Home/ 
