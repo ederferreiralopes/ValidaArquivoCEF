@@ -133,19 +133,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505211728118_eder.cs" />
-    <Compile Include="Migrations\201505211728118_eder.Designer.cs">
-      <DependentUpon>201505211728118_eder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505211819298_agoravai2.cs" />
-    <Compile Include="Migrations\201505211819298_agoravai2.Designer.cs">
-      <DependentUpon>201505211819298_agoravai2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505212048535_agoravai22.cs" />
-    <Compile Include="Migrations\201505212048535_agoravai22.Designer.cs">
-      <DependentUpon>201505212048535_agoravai22.cs</DependentUpon>
+    <Compile Include="Migrations\201505222009186_usu2.cs" />
+    <Compile Include="Migrations\201505222009186_usu2.Designer.cs">
+      <DependentUpon>201505222009186_usu2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\ConfigurationContextUsuario.cs" />
     <Compile Include="Models\ArquivoModel.cs" />
     <Compile Include="Models\DBLogValidacao.cs" />
     <Compile Include="Models\DBUsuario.cs" />
@@ -194,18 +187,12 @@
     <Content Include="Views\Account\Cadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505211728118_eder.resx">
-      <DependentUpon>201505211728118_eder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505211819298_agoravai2.resx">
-      <DependentUpon>201505211819298_agoravai2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505212048535_agoravai22.resx">
-      <DependentUpon>201505212048535_agoravai22.cs</DependentUpon>
-    </EmbeddedResource>
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Account\Index.cshtml" />
+    <EmbeddedResource Include="Migrations\201505222009186_usu2.resx">
+      <DependentUpon>201505222009186_usu2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

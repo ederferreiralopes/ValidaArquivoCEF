@@ -14,23 +14,28 @@
     <img alt="logo" src="~/images/logo.jpg" />
 
     <section id="controles">
-            VALIDADOR ARQUIVO CEF SIACC 240 @TempData["mensagem"]   
+        <header>
+            @TempData["mensagem"]   
         
             @using (@Html.BeginForm("Logout", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <input type="submit" name="Logout" id="Logout" value="Logout" />
             }
+        </header>    
+        
+            VALIDADOR ARQUIVO CEF SIACC 240 
 
-            @using (@Html.BeginForm("ValidaArquivoCEF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (@Html.BeginForm("ValidaArquivoCEF", "Home", FormMethod.Post, new {id="form1", enctype = "multipart/form-data" }))
             {
                 <input type="file" id="Arquivo" name="Arquivo" value="arquivo." />
                 
-                @Html.RadioButtonFor(x => x.Tipo, "REM") @Html.Label("Remessa")
-                @Html.RadioButtonFor(x => x.Tipo, "RET") @Html.Label("Retorno")
-                    <input id="bt_Validar" type="submit" value="Validar" onclick="validacaoPrevia()" />
-                    <input id="bt_Limpar" type="button" onclick="limpar()" value="Limpar" />
-        <input id="busca" type="text" value="" size="12" />
-        <input id="bt_busca" type="button" onclick="doDestacaTexto(document.getElementById('busca').value, log_TextoValidacao.innerHTML)" value="Destacar" />
+                @Html.RadioButtonFor(x => x.Tipo, "REM", new {@class = "remessa", @checked = "checked"} ) @Html.Label("Remessa")
+                @Html.RadioButtonFor(x => x.Tipo, "RET",new {@class = "retorno"}) @Html.Label("Retorno")
+                <input id="bt_Validar" type="button" value="Validar" onclick="validacaoPrevia()" /> 
+                <br />
+                <input id="bt_Limpar" type="button" onclick="limpar()" value="Limpar" />
+                <input id="busca" type="text" value="" size="12" />
+                <input id="bt_busca" type="button" onclick="doDestacaTexto(document.getElementById('busca').value, log_TextoValidacao.innerHTML)" value="Destacar" />
             }
 
 

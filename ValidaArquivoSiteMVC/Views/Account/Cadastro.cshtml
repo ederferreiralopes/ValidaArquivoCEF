@@ -13,15 +13,24 @@
     <title>Cadastro</title>
 </head>
 <body>
-    
-    @using (Html.BeginForm("Cadastrar","Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+    @using (Html.BeginForm("Cadastrar", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
+        
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
     
         <fieldset>
             <legend>Cadastro</legend>
-        
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Nome)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Nome)
+                @Html.ValidationMessageFor(model => model.Nome)
+            </div>
+
             <div class="editor-label">
                 @Html.LabelFor(model => model.Login)
             </div>
@@ -29,7 +38,7 @@
                 @Html.EditorFor(model => model.Login)
                 @Html.ValidationMessageFor(model => model.Login)
             </div>
-    
+
             <div class="editor-label">
                 @Html.LabelFor(model => model.Senha)
             </div>
@@ -37,15 +46,15 @@
                 @Html.EditorFor(model => model.Senha)
                 @Html.ValidationMessageFor(model => model.Senha)
             </div>
-    
+
             <p>
                 <input type="submit" value="Cadastrar" />
             </p>
+            <p>
+                @Html.ActionLink("Voltar", "Index")
+            </p>
         </fieldset>
     }
-    
-    <div>
-        @Html.ActionLink("Voltar", "Index")
-    </div>
+
 </body>
 </html>

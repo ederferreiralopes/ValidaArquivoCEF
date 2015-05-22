@@ -28,7 +28,7 @@ namespace ValidaArquivoSiteMVC.Controllers
                 HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptTicket);
                 Response.Cookies.Add(authCookie);
 
-                TempData["mensagem"] = usuario.Login + ", Seja bem vindo!";
+                TempData["mensagem"] = "bem vindo, " + usuario.Login;
                 return RedirectToAction("Index", "Home");
             }
             else

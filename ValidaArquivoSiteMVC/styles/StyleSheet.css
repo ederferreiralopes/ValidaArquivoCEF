@@ -1,37 +1,64 @@
 ﻿body {
-
 }
 
-Form {
-    background-color:darkgray;
+header{
+    position: absolute;
+    top: -30px;
+}
+header form{
+    position: absolute;
+    top: -3px;
+    left: 477px;
 }
 
 img {
-    position:absolute;
-    height: 120px;
-    width: 120px;
+    position:absolute;    
+    width: 70px;
+    height: 78px;
     top: 40px;
-    left: 44px;
+    left: 77px;
 }
 
 section#controles {
     position:absolute;
     background-color:darkgray;    
     top:40px;
-    left:170px;
+    left:150px;
     width: auto;
+    height: 70px;
     padding:4px;
 }
 
-.TextoValidacao {
-    position: absolute;
-    top:100px;
+p#log_TextoValidacao {
+    position: relative;
+    top:124px;
     left: 170px;
     height: 126px;
-    width: auto;    
+    width: auto;   
 }
 
-p {
-    background-color:darkgray;
-    padding:4px;
+p#mensagemErro {
+    color: red;
 }
+
+input#gerapdf{
+    position: relative;
+    top:-24px;
+    left: 250px;
+    visibility: hidden;
+}
+
+input#bt_Validar{
+    visibility: visible; 
+}
+
+a:link, a:visited {
+	text-decoration: none
+	}
+a:hover {
+	text-decoration: underline; 
+	color: #f00
+	}
+a:active {
+	text-decoration: none
+	}

@@ -78,8 +78,12 @@ function getTextoValidacao()
 
 function validacaoPrevia()
 {
-    document.getElementById("gerapdf").style.visibility = 'hidden';
-    //alert("esconder botao!");
+    var btn_arquivo = document.getElementById("Arquivo").value;
+    if (btn_arquivo.length < 1) {
+        alert("escolha um arquivo!");
+        return;
+    }
+    document.forms["form1"].submit();
 }
 
 //function mostrarBotoes()

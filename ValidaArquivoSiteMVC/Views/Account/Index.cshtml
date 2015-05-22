@@ -42,13 +42,15 @@
                 <input type="submit" value="Entrar" />
             </p>
             <p>
-                @TempData["mensagemErro"]
+                @Html.ActionLink("Cadastre-se", "Cadastro")
             </p>
+            <p id="mensagemErro">
+                @TempData["mensagemErro"]
+            </p>       
+    
         </fieldset>
     }
     
-    <div>
-        @Html.ActionLink("Cadastre-se", "Cadastro")
-    </div>
+
 </body>
 </html>

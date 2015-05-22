@@ -11,7 +11,8 @@ namespace ValidaArquivoSiteMVC.Models
     public class UsuarioModel
     {
         [Key]
-        public int Id { get; set; }
+        public int Id { get; set; }        
+        public String Nome { get; set; }
         public String Login { get; set; }
         public String Senha { get; set; }
     }
