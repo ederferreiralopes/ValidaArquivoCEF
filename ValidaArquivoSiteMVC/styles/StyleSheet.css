@@ -45,11 +45,6 @@ input#gerapdf{
     position: relative;
     top:-24px;
     left: 250px;
-    visibility: hidden;
-}
-
-input#bt_Validar{
-    visibility: visible; 
 }
 
 a:link, a:visited {

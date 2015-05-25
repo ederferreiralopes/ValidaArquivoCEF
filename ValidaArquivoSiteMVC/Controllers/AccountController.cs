@@ -19,16 +19,16 @@ namespace ValidaArquivoSiteMVC.Controllers
         public ActionResult Login(UsuarioModel usuario)
         {
             DBUsuario db = new DBUsuario();
-            List<UsuarioModel> query = db.Usuario.Where(usu => usu.Login == usuario.Login && usu.Senha == usuario.Senha).ToList();
+            List<UsuarioModel> usuarioBanco = db.Usuario.Where(usu => usu.Login == usuario.Login && usu.Senha == usuario.Senha).ToList();
 
-            if (query.Count > 0)
+            if (usuarioBanco.Count > 0)
             {
                 FormsAuthenticationTicket authenticationTicket = new FormsAuthenticationTicket(usuario.Login, false, 60);
                 string encryptTicket = FormsAuthentication.Encrypt(authenticationTicket);
                 HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptTicket);
                 Response.Cookies.Add(authCookie);
 
-                TempData["mensagem"] = "bem vindo, " + usuario.Login;
+                TempData["mensagem"] = "bem vindo, " + usuarioBanco[0].Nome;
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -47,6 +47,7 @@ namespace ValidaArquivoSiteMVC.Controllers
         [HttpPost]
         public ActionResult Cadastrar(UsuarioModel usuario)
         {
+            usuario.Data_Criacao = DateTime.Now;
             DBUsuario dbUsuario = new DBUsuario();
             dbUsuario.Usuario.Add(usuario);            
             dbUsuario.SaveChanges();

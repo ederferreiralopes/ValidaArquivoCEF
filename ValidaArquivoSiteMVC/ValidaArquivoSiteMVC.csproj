@@ -133,10 +133,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505222009186_usu2.cs" />
-    <Compile Include="Migrations\201505222009186_usu2.Designer.cs">
-      <DependentUpon>201505222009186_usu2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\ConfigurationContextUsuario.cs" />
     <Compile Include="Models\ArquivoModel.cs" />
@@ -181,18 +177,10 @@
     <Content Include="App_Browsers\qt.browser" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\ValidacaoPDF.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Account\Cadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505222009186_usu2.resx">
-      <DependentUpon>201505222009186_usu2.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

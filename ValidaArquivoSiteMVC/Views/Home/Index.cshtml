@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" charset="utf-8"/>
     <title>VALIDADOR</title>
     <link href="~/styles/StyleSheet.css" rel="stylesheet" />
     <script src="~/js/javascript.js"></script>
@@ -39,9 +39,9 @@
             }
 
 
-            @using (@Html.BeginForm("GeneratePDF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (@Html.BeginForm("GeneratePDF", "Home", FormMethod.Post, new {id="form2", enctype = "multipart/form-data" }))
             {
-                <input id="gerapdf" type="submit" value="Gerar PDF" />
+                <input id="gerapdf" type="button" value="Gerar PDF" onclick="VerificarConteudo()" />
             }
         </section>
 

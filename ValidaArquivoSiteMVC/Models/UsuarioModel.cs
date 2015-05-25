@@ -15,5 +15,6 @@ namespace ValidaArquivoSiteMVC.Models
         public String Nome { get; set; }
         public String Login { get; set; }
         public String Senha { get; set; }
+        public DateTime Data_Criacao { get; set; }
     }
 }

@@ -68,12 +68,12 @@ function mostrarOculto()
 
 function limpar()
 {
-    document.getElementById("log_TextoValidacao").innerText = "";
+    document.getElementById("log_TextoValidacao").textContent = "";
 }
 
 function getTextoValidacao()
 {
-    document.getElementById("textoValidacao").innerHTML = localStorage.getItem("textoOriginal");
+    document.getElementById("textoValidacao").innerHTML = localStorage.getItem("textoOriginal");    
 }
 
 function validacaoPrevia()
@@ -83,11 +83,21 @@ function validacaoPrevia()
         alert("escolha um arquivo!");
         return;
     }
-    document.forms["form1"].submit();
+    else {
+        document.forms["form1"].submit();        
+    }    
 }
 
-//function mostrarBotoes()
-//{
-//    document.getElementById("gerapdf").style.visibility = 'hidden';
-//    alert("esconder botao!");
-//}
+function VerificarConteudo()
+{
+    var tamanhoTexto = document.getElementById("log_TextoValidacao").textContent.trim().length;
+
+    if (tamanhoTexto < 1)
+    {
+        alert("Não há conteúdo para gerar PDF!");
+    }
+    else
+    {
+        document.forms["form2"].submit();
+    }
+}
