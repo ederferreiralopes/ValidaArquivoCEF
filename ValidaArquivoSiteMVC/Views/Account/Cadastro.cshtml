@@ -1,60 +1,52 @@
 ﻿@model ValidaArquivoSiteMVC.Models.UsuarioModel
-
-@{
-    Layout = null;
-}
-
+@{ Layout = null; }
 <!DOCTYPE html>
-
 <html>
 <head>
-    <link href="~/styles/StyleSheet.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width" />
     <title>Cadastro</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/styles/StyleSheet.css" rel="stylesheet" />
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/JQuery/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-
-    @using (Html.BeginForm("Cadastrar", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-    
-        <fieldset>
-            <legend>Cadastro</legend>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Nome)
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <fieldset>
+                    <legend>Cadastro de usuário</legend>
+                    <div id="" class="col-md-2">
+                        <img class="img-responsive" src="~/images/logo.jpg" />
+                    </div>
+                    <div id="" class="col-md-4">
+                        @using (Html.BeginForm("Cadastrar", "Account", FormMethod.Post, new { @class = "", enctype = "multipart/form-data" }))
+                        {        
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <div class="form-group">
+                                @Html.TextBoxFor(model => model.Nome, new {placeholder="Nome" })
+                                @Html.ValidationMessageFor(model => model.Nome)
+                            </div>                            
+                            <div class="form-group">
+                                @Html.TextBoxFor(model => model.Login, new {placeholder="Login" })
+                                @Html.ValidationMessageFor(model => model.Login)
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(model => model.Senha, new {placeholder="Senha" })
+                                @Html.ValidationMessageFor(model => model.Senha)
+                            </div>
+                            <p>
+                                <input class="btn btn-primary" type="submit" value="Cadastrar" />
+                            </p>                
+                        }
+                        <p>
+                            @Html.ActionLink("Voltar", "Index")
+                        </p>
+                    </div>
+                </fieldset>
             </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Nome)
-                @Html.ValidationMessageFor(model => model.Nome)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Login)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Login)
-                @Html.ValidationMessageFor(model => model.Login)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Senha)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Senha)
-                @Html.ValidationMessageFor(model => model.Senha)
-            </div>
-
-            <p>
-                <input type="submit" value="Cadastrar" />
-            </p>
-            <p>
-                @Html.ActionLink("Voltar", "Index")
-            </p>
-        </fieldset>
-    }
-
+        </div>
+    </div>
 </body>
 </html>

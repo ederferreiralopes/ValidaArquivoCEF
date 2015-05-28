@@ -1,59 +1,29 @@
 ﻿body {
 }
 
-header{
-    position: absolute;
-    top: -30px;
-}
-header form{
-    position: absolute;
-    top: -3px;
-    left: 477px;
+#textoValidacao 
+{
+    background-color: cadetblue;
 }
 
-img {
-    position:absolute;    
-    width: 70px;
-    height: 78px;
-    top: 40px;
-    left: 77px;
+#textoValidacao_orginal 
+{
+    visibility:hidden;
 }
 
-section#controles {
-    position:absolute;
-    background-color:darkgray;    
-    top:40px;
-    left:150px;
+#div01 
+{
+    padding: 3px;
+    border:3px solid;
+    border-color:cadetblue;
+    background-color: #CCCCCC;
+}
+
+img 
+{
+    border:3px solid;
+    border-color:cadetblue;    
     width: auto;
-    height: 70px;
-    padding:4px;
+    height: auto;
 }
 
-p#log_TextoValidacao {
-    position: relative;
-    top:124px;
-    left: 170px;
-    height: 126px;
-    width: auto;   
-}
-
-p#mensagemErro {
-    color: red;
-}
-
-input#gerapdf{
-    position: relative;
-    top:-24px;
-    left: 250px;
-}
-
-a:link, a:visited {
-	text-decoration: none
-	}
-a:hover {
-	text-decoration: underline; 
-	color: #f00
-	}
-a:active {
-	text-decoration: none
-	}

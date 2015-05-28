@@ -29,7 +29,7 @@ namespace ValidaArquivoSiteMVC.Controllers
                 }
 
                 ValidaArquivoCAIXA valida = new ValidaArquivoCAIXA();
-                model.Validacao = ("Validando arquivo: " + model.Nome + "<br><br>");
+                //model.Validacao = ("Validando arquivo: " + model.Nome + "<br><br>");
                 
                 if (model.Tipo.Equals("REM"))
                 {

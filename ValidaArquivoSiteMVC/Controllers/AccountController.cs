@@ -28,12 +28,12 @@ namespace ValidaArquivoSiteMVC.Controllers
                 HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptTicket);
                 Response.Cookies.Add(authCookie);
 
-                TempData["mensagem"] = "bem vindo, " + usuarioBanco[0].Nome;
+                TempData["mensagem"] = " Bem vindo, " + usuarioBanco[0].Nome;
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                TempData["mensagemErro"] = "Usuario ou senha invalidos!";
+                TempData["mensagemErro"] = " Usuario ou senha invalidos! ";
                 return View("Index");
             }
             

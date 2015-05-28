@@ -5,50 +5,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" charset="utf-8"/>
     <title>VALIDADOR</title>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />    
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/styles/StyleSheet.css" rel="stylesheet" />
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/js/javascript.js"></script>
+    <script src="~/JQuery/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-    <img alt="logo" src="~/images/logo.jpg" />
-
-    <section id="controles">
-        <header>
-            @TempData["mensagem"]   
-        
-            @using (@Html.BeginForm("Logout", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-                <input type="submit" name="Logout" id="Logout" value="Logout" />
-            }
-        </header>    
-        
-            VALIDADOR ARQUIVO CEF SIACC 240 
-
-            @using (@Html.BeginForm("ValidaArquivoCEF", "Home", FormMethod.Post, new {id="form1", enctype = "multipart/form-data" }))
-            {
-                <input type="file" id="Arquivo" name="Arquivo" value="arquivo." />
-                
-                @Html.RadioButtonFor(x => x.Tipo, "REM", new {@class = "remessa", @checked = "checked"} ) @Html.Label("Remessa")
-                @Html.RadioButtonFor(x => x.Tipo, "RET",new {@class = "retorno"}) @Html.Label("Retorno")
-                <input id="bt_Validar" type="button" value="Validar" onclick="validacaoPrevia()" /> 
-                <br />
-                <input id="bt_Limpar" type="button" onclick="limpar()" value="Limpar" />
-                <input id="busca" type="text" value="" size="12" />
-                <input id="bt_busca" type="button" onclick="doDestacaTexto(document.getElementById('busca').value, log_TextoValidacao.innerHTML)" value="Destacar" />
-            }
-
-
-            @using (@Html.BeginForm("GeneratePDF", "Home", FormMethod.Post, new {id="form2", enctype = "multipart/form-data" }))
-            {
-                <input id="gerapdf" type="button" value="Gerar PDF" onclick="VerificarConteudo()" />
-            }
-        </section>
-
-            <div class="TextoValidacao">
-                <p id="log_TextoValidacao">
-                    @Html.DisplayTextFor(x => x.Validacao)
-                </p>
+    <div class="">
+       <div class="container">
+        <div class="row">
+            <div id="coluna01" class="col-md-2">
+                <img class="img-responsive" src="~/images/logo.jpg" />
             </div>
-    </body>
-    </html>
+
+            <div class="col-md-10">
+                <div id="div01" class="row">
+                    <div class="col-md-12">
+                    <div class="row">
+                     <legend>
+                         VALIDADOR ARQUIVO CEF SIACC 240
+                         <label class="label" id="label01"> @TempData["mensagem"] @Html.ActionLink(" Sair ", "Logout", "Account") </label>                        
+                    </legend>
+                    </div>
+
+                    @using (@Html.BeginForm("ValidaArquivoCEF", "Home", FormMethod.Post, new { id = "form1", enctype = "multipart/form-data" }))
+                    {
+                        <div class="row">
+                            <input class="btn btn-primary" type="file" id="Arquivo" name="Arquivo" value="arquivo." />                
+                            @Html.RadioButtonFor(x => x.Tipo, "REM", new { @class = "remessa", @checked = "checked" }) @Html.Label("Remessa")
+                            @Html.RadioButtonFor(x => x.Tipo, "RET", new { @class = "retorno" }) @Html.Label("Retorno")
+                        </div>
+                        <div class="row">
+                            <input id="bt_Validar" class="btn btn-primary" type="button" value="Validar" onclick="validacaoPrevia()" />
+                            @using (@Html.BeginForm("GeneratePDF", "Home", FormMethod.Post, new { id = "form2", enctype = "multipart/form-data" }))
+                            {
+                                <input class="btn btn-primary" id="gerapdf" type="button" value="Gerar PDF" onclick="VerificarConteudo()" />
+                            }
+                            <input id="bt_Limpar" class="btn btn-primary" type="button" onclick="limpar()" value="Limpar" />
+                            <input id="busca" type="text" value="" size="12" />
+                            <input id="bt_busca" class="btn btn-primary" type="button" onclick="destacaTexto()" value="Destacar" />  
+                        </div>
+                    }
+                    </div>
+
+                </div>
+                <div class="row">
+                    
+                    <div id="textoValidacao" class="col-md-12">
+                        <p><!-- texto validação -->
+                            @Html.DisplayTextFor(x => x.Validacao)
+                        </p>
+                    </div>
+                    <div id="textoValidacao_orginal" class="col-md-12">
+                        <p>
+                            @Html.DisplayTextFor(x => x.Validacao)
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!--fin do conteiner -->
+  </div>
+</body>
+</html>
